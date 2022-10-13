@@ -23,6 +23,44 @@ function getMovies() {
     }
 }
 
+function getReviews(id) {
+    return async (dispatch, getState) => {
+        try {
+            const reviewList = await api.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${APP_KEY}&language=en-US&page=1`)
+    
+            dispatch({
+                type: 'GET_REVIEWS_SUCCESS',
+                payload: {
+                    movieReviews : reviewList.data
+                }
+            })
+        }
+        catch (err) {
+            console.log("Error.. Can't get Reviews")
+        }
+    }
+}
+
+function getRelatedMovies(id) {
+    return async (dispatch, getState) => {
+        try {
+            const relatedMovieList = await api.get(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${APP_KEY}&language=en-US&page=1`)
+    
+            dispatch({
+                type: 'GET_RELATED_SUCCESS',
+                payload: {
+                    relatedMovies : relatedMovieList.data
+                }
+            })
+        }
+        catch (err) {
+            console.log("Error.. Can't get related Movies")
+        }
+    }
+}
+
 export const movieAction = {
     getMovies,
+    getReviews,
+    getRelatedMovies,
 }

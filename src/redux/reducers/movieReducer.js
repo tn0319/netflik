@@ -3,6 +3,8 @@ let initialState = {
     topRatedMovies: [],
     upComingMovies: [],
     movieGnere: [],
+    movieReviews: {}, //*왜 object가 아닌 array 형식인지 
+    relatedMovies: {},
     loading: true,
 }
 
@@ -27,6 +29,17 @@ function movieReducer(state=initialState, action) {
                 upComingMovies: payload.upComingMovies,
                 movieGnere: payload.movieGnere,
                 loading : false
+            }
+        case "GET_REVIEWS_SUCCESS":
+            return {
+                ...state,
+                movieReviews: payload.movieReviews,
+                loading : false
+            }
+        case "GET_RELATED_SUCCESS": 
+            return {
+                ...state,
+                relatedMovies: payload.relatedMovies,
             }
         default:
             return { ...state };

@@ -12,10 +12,10 @@ function getMovies() {
             const gnereApi = api.get(`/genre/movie/list?api_key=${APP_KEY}&language=en-US`)
     
             let [popularMovies, topRatedMovies, upComingMovies, movieGnere] = await Promise.all([popularMovieApi, topRatedApi, upComingApi, gnereApi])
-    
+            
             dispatch({
                 type: 'GET_MOVIES_SUCCESS',
-                payload: {popularMovies: popularMovies.data, topRatedMovies: topRatedMovies.data, upComingMovies: upComingMovies.data, movieGnere : movieGnere.data.genres },
+                payload: {popularMovies: popularMovies.data.results, topRatedMovies: topRatedMovies.data.results, upComingMovies: upComingMovies.data.results, movieGnere : movieGnere.data.genres },
             })
         } catch (err) {
             dispatch({ type: "GET_MOVIES_FAILURE" });

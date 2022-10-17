@@ -16,6 +16,7 @@ const MovieCard = ({ item }) => {
             `/movies/:${item.id}`,
             { state: { ...item } })
     }
+
     return (
         <>
         <div onClick={goToDetail} className="card" style={{backgroundImage : `url('https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}')`}}>

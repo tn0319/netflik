@@ -3,8 +3,8 @@ let initialState = {
     topRatedMovies: [],
     upComingMovies: [],
     movieGnere: [],
-    movieReviews: {}, //*왜 object가 아닌 array 형식인지 
-    relatedMovies: {},
+    movieReviews: [], //*왜 object가 아닌 array 형식인지 
+    relatedMovies: [],
     loading: true,
 }
 

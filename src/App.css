@@ -99,3 +99,22 @@ body {
 .card:hover .overlay {
     opacity: 1;
 }
+
+/* 상세페이지 */
+.movieReview {
+    border: 1px solid #fff;
+    padding: 10px 20px;
+}
+
+.movieReview ul {
+    padding: 0!important;
+    margin: 0!important;
+}
+
+.movieReview li {
+    padding: 10px 0;
+}
+
+.movieReview li + li {
+    border-top: 1px solid #fff;
+}

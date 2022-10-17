@@ -27,11 +27,11 @@ function getReviews(id) {
     return async (dispatch, getState) => {
         try {
             const reviewList = await api.get(`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${APP_KEY}&language=en-US&page=1`)
-    
+            
             dispatch({
                 type: 'GET_REVIEWS_SUCCESS',
                 payload: {
-                    movieReviews : reviewList.data
+                    movieReviews : reviewList.data.results
                 }
             })
         }
@@ -49,7 +49,7 @@ function getRelatedMovies(id) {
             dispatch({
                 type: 'GET_RELATED_SUCCESS',
                 payload: {
-                    relatedMovies : relatedMovieList.data
+                    relatedMovies : relatedMovieList.data.results
                 }
             })
         }

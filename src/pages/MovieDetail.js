@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
-import {movieAction} from '../redux/actions/movieAction'
+import { movieAction } from '../redux/actions/movieAction'
+import Button from 'react-bootstrap/Button';
 
 const MovieDetail = () => {
   const location = useLocation();
   const movie = location.state;
   const dispatch = useDispatch();
   const { movieReviews, relatedMovies } = useSelector(state => state.movie)
-  
+  const [activeTab, setActiveTab] = useState(0);
+
   useEffect(() => {
     dispatch(movieAction.getReviews(movie.id))
     dispatch(movieAction.getRelatedMovies(movie.id))
-  }, []);
-  
-  console.log('리뷰', movieReviews.results);
-  console.log('추천뮤비', relatedMovies.results);
+    setActiveTab(0)
+  }, [movie]);
   
   return (
     <div className='inner movieDetail'>
@@ -40,27 +40,36 @@ const MovieDetail = () => {
         </div>
       </div>
 
-      <div className='movieReview'>
-        <div className='movieReview'>
-          <ul>
-            {
-              Object.keys(movieReviews).length !== 0 ? //* movieReviews의 값이 있을 경우 map을 사용함
-              movieReviews.results.map(ele => (
-                <li key={ele.id}>{ele.content}</li>
-              )) : null
-            }
+      <div className='tabWrap'>
+        <div>
+          <Button variant={ activeTab === 0 ? "danger" : "secondary"} onClick={()=>setActiveTab(0)}>
+            REVIEWS ({movieReviews.length})
+          </Button>
+          <Button variant={activeTab === 1 ? "danger" : "secondary"} onClick={() => setActiveTab(1)}>
+            RELATED MOVIES ({relatedMovies.length})
+          </Button>
+        </div>
+        {
+          activeTab === 0 ?
+          <div className='movieReview'>
+            <ul>
+              {
+                  movieReviews.map(ele => (
+                  <li key={ele.id}>{ele.content}</li>
+                ))
+              }
+              </ul>
+          </div> :
+          <div className='relatedMovies'>
+              <ul>
+              {
+                relatedMovies.map(ele => (
+                  <li><MovieCard item={ele} key={ele.id}/></li>
+                ))
+              }
             </ul>
-        </div>
-        <div className='relatedMovies'>
-          <ul>
-            {
-              relatedMovies.length > 0 ?
-              relatedMovies.results.map(ele => {
-                <li><MovieCard item={ele} key={ele.id} /></li>
-              }) : null
-            }
-          </ul>
-        </div>
+          </div>
+        }
       </div>
     </div>
   )

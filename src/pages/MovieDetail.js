@@ -66,7 +66,7 @@ const MovieDetail = () => {
 								<ul>
 									{
 										relatedMovies.map(ele => (
-											<li><MovieCard item={ele} key={ele.id} /></li>
+											<li key={ele.id}><MovieCard item={ele} /></li>
 										))
 									}
 								</ul>

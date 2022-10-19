@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -18,103 +86,325 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
-    margin: 0;
-    padding: 0;
+
+ol,
+ul {
+	margin: 0;
+	padding: 0;
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
+select {
+	cursor: pointer;
+}
+
 body {
-    background-color: #000!important;
-    color: #fff!important;
+	background-color: #000 !important;
+	color: #fff !important;
 }
 
 .inner {
-    width: 1200px;
-    margin: 0 auto;
+	width: 1800px;
+	margin: 0 auto;
+}
+
+.contain {
+	margin: 180px 0 100px;
+}
+
+.red {
+	color: red;
+}
+
+/* navigation */
+.navbar {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
 }
 
 .nav-item {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 20px;
+	color: #fff;
+	text-decoration: none;
+	margin-right: 20px;
+}
+
+
+/* home */
+.home {
+	margin-top: -100px;
+}
+
+.home .movie-tit {
+	margin: 100px 0 30px;
 }
 
 .banner {
-    position: relative;
-    height: 600px;
-    display: flex;
-    align-items: center;
+	position: relative;
+	height: 800px;
+	display: flex;
+	align-items: center;
+	background-position: center;
+	background-size: cover;
 }
 
 .banner::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;    
-    background: linear-gradient(to right, black, transparent);
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right, black, transparent);
 }
 
-.bannerInfo {
-    width: 40%;
-    margin-left: 20px;
-    z-index: 1;
+.banne-info {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
 }
 
+.banne-info .banner-tit {
+	font-size: 65px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.banne-info .desc {
+	font-size: 20px;
+	line-height: 24px;
+	width: 800px;
+	margin-top: 50px;
+}
+
+/* movie card */
 .card {
-    width: 300px;
-    height: 200px!important;
-    cursor: pointer;
+	position: relative;
+	width: 300px;
+	height: 200px !important;
+	cursor: pointer;
+	background-size: cover;
 }
 
 .overlay {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	opacity: 0;
+	width: 300px;
+	height: 200px;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 20px;
 }
 
 .card:hover .overlay {
-    opacity: 1;
+	opacity: 1;
 }
 
-/* 상세페이지 */
-.movieReview {
-    border: 1px solid #fff;
-    padding: 10px 20px;
+.card .card-tit {
+	font-size: 28px;
+	line-height: 32px;
+	font-weight: 700;
+	margin: 0;
 }
 
-.movieReview ul {
-    padding: 0!important;
-    margin: 0!important;
+.card .genre {
+	margin-top: 3px;
 }
 
-.movieReview li {
-    padding: 10px 0;
+.card .genre span+span {
+	margin-left: 5px;
 }
 
-.movieReview li + li {
-    border-top: 1px solid #fff;
+.card .sub-info {
+	margin-top: 15px;
+}
+
+.card .sub-info span+span {
+	margin-left: 10px;
+}
+
+.card .sub-info .adult {
+	color: red;
+	font-weight: 700;
+}
+
+.card .trailer {
+	margin-top: 5px;
+}
+
+/* detail page */
+.movie-detail .movie-info {
+	display: flex;
+}
+
+.movie-detail .movie-info .left {
+	flex: 0 0 450px;
+	margin-right: 50px;
+}
+
+.movie-detail .movie-info .right {
+	margin-top: 50px;
+}
+
+.movie-detail .movie-info .poster {
+	width: 450px;
+	background-size: cover;
+}
+
+.movie-detail .movie-info .tit {
+	font-size: 50px;
+}
+
+.movie-detail .movie-info .desc {
+	font-size: 20px;
+	line-height: 24px;
+	width: 800px;
+	margin-top: 30px;
+}
+
+.movie-detail .movie-info .info-wrap span+span {
+	margin-left: 20px;
+}
+
+.movie-detail .tab-wrap {
+	margin-top: 100px;
+}
+
+.movie-detail .tab-wrap .btn-wrap button+button {
+	margin-left: 10px;
+}
+
+.movie-detail .tab-wrap .cont-wrap {
+	margin-top: 30px;
+}
+
+.movie-review {
+	border: 1px solid #fff;
+	padding: 10px 20px;
+}
+
+.movie-review .nolist {
+	margin: 50px 0;
+	text-align: center;
+	font-size: 20px;
+}
+
+.movie-review ul,
+.related-movies ul {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.movie-review li {
+	padding: 10px 0;
+}
+
+.movie-review li+li {
+	border-top: 1px solid #fff;
+}
+
+.related-movies ul {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.related-movies li+li {
+	margin-left: 60px;
+	margin-top: 60px;
+}
+
+.related-movies li:nth-child(2),
+.related-movies li:nth-child(3),
+.related-movies li:nth-child(4),
+.related-movies li:nth-child(5) {
+	margin-top: 0;
+}
+
+.related-movies li:nth-child(5n + 1) {
+	margin-left: 0;
+}
+
+/* movies page */
+.movies {
+	display: flex;
+}
+
+.movies .result {
+	font-size: 20px;
+}
+
+.movies .result .red {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.movies .left {
+	flex: 0 0 300px;
+	margin-right: 100px;
+}
+
+.movies .right ul {
+	padding: 0 !important;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.movies .right li+li {
+	margin-left: 50px;
+	margin-top: 50px;
+}
+
+.movies .right li:nth-child(4n + 1) {
+	margin-left: 0;
+}
+
+.movies .right li:nth-child(2),
+.movies .right li:nth-child(3),
+.movies .right li:nth-child(4) {
+	margin-top: 0;
 }

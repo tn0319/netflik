@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux';
 import MovieCard from '../components/MovieCard';
@@ -20,23 +20,24 @@ const Movies = () => {
   }
 
   return (
-    <div>
-      <div className='left'>
-        <Form.Select aria-label="Default select example" onChange={handleFilterSelector}>
-            <option value="basic">Filter</option>
-            {movieGnere.map(ele => (
-              <option value={ele.id}>{ele.name}</option>
-            ))}
+    <div class="inner movies">
+      <div className="left">
+        <Form.Select bg="dark" aria-label="Default select example" onChange={handleFilterSelector}>
+          <option value="basic">Filter</option>
+          {movieGnere.map(ele => (
+            <option value={ele.id}>{ele.name}</option>
+          ))}
         </Form.Select>
       </div>
-      <div className='right'>
+      <div className="right">
+        {searchVal !== "" && <p className='result'>"<span className='red'>{searchVal}</span>"에 대한 검색 결과입니다.</p>}
         <ul>
           {
             movieList.map(ele => (
-             <li key={ele.id}><MovieCard item={ele} /></li>
-          ))
+              <li key={ele.id}><MovieCard item={ele} /></li>
+            ))
           }
-          </ul>
+        </ul>
       </div>
     </div>
   )

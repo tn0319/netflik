@@ -9,7 +9,7 @@ const Movies = () => {
   const { searchVal } = useSelector(state => state.search)
   const [filterVal, setFilterVal] = useState(0);
   const [page, setPage] = useState(1);
-  const itemsCountPerPage = 10;
+  const itemsCountPerPage = 8;
   const [fristItemIndex, setFristItemIndex] = useState(0);
   let [lastItemIndex, setLastItemIndex] = useState(itemsCountPerPage);
 
@@ -45,7 +45,7 @@ const Movies = () => {
       </div>
       <div className="right">
         {searchVal !== "" && <p className='result'>"<span className='red'>{searchVal}</span>"에 대한 검색 결과입니다.</p>}
-        <ul>
+        <ul className="list-wrap">
           {console.log(fristItemIndex, lastItemIndex)}
           {
             movieList.slice(fristItemIndex, lastItemIndex).map(ele => (

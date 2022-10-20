@@ -31,7 +31,7 @@ const MovieCard = ({ item }) => {
 					<div className="sub-info">
 						<span className="vote">{item.vote_average}</span><span className="adult">{item.adult ? "청소년관람불가" : "Under 18"}</span>
 					</div>
-					<Button className="trailer" variant="primary" onClick={() => setModalShow(true)}>예고편 재생</Button>
+					{/* <Button className="trailer" variant="primary" onClick={() => setModalShow(true)}>예고편 재생</Button> */}
 				</div>
 			</div>
 			<MovieTrailer show={modalShow} onHide={() => setModalShow(false)} />

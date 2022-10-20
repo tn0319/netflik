@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import { useSelector } from 'react-redux';
 import MovieCard from '../components/MovieCard';
@@ -46,7 +46,6 @@ const Movies = () => {
       <div className="right">
         {searchVal !== "" && <p className='result'>"<span className='red'>{searchVal}</span>"에 대한 검색 결과입니다.</p>}
         <ul className="list-wrap">
-          {console.log(fristItemIndex, lastItemIndex)}
           {
             movieList.slice(fristItemIndex, lastItemIndex).map(ele => (
               <li key={ele.id}><MovieCard item={ele} /></li>

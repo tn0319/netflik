@@ -136,7 +136,7 @@ select {
 }
 
 body {
-	background-color: #000 !important;
+	background-color: rgb(32, 32, 32) !important;
 	color: #fff !important;
 }
 
@@ -160,6 +160,7 @@ body {
 	left: 0;
 	width: 100%;
 	z-index: 1000;
+	background-color: #000 !important;
 }
 
 .nav-item {
@@ -223,7 +224,6 @@ body {
 	width: 300px;
 	height: 200px !important;
 	cursor: pointer;
-	background-size: cover;
 }
 
 .overlay {
@@ -256,8 +256,8 @@ body {
 	margin-top: 3px;
 }
 
-.card .genre span+span {
-	margin-left: 5px;
+.card .genre span {
+	margin-right: 5px;
 }
 
 .card .sub-info {
@@ -298,6 +298,10 @@ body {
 
 .movie-detail .movie-info .tit {
 	font-size: 50px;
+}
+
+.movie-detail .movie-info .gerne-wrap span {
+	margin-right: 8px;
 }
 
 .movie-detail .movie-info .desc {
@@ -389,11 +393,9 @@ body {
 }
 
 .movies .right {
+	position: relative;
 	width: 1400px;
 	height: 700px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
 
 .movies .list-wrap {
@@ -418,7 +420,10 @@ body {
 }
 
 .pagination {
-	justify-content: center;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .pagination li a {
@@ -433,4 +438,9 @@ body {
 	border-radius: 50%;
 	border: 1px solid #fff;
 	margin: 0 5px;
+}
+
+.pagination li.active a {
+	color: red;
+	border: 1px solid red;
 }

@@ -4,12 +4,13 @@ import { useLocation } from 'react-router-dom';
 import MovieCard from '../components/MovieCard';
 import { movieAction } from '../redux/actions/movieAction'
 import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
 
 const MovieDetail = () => {
 	const location = useLocation();
 	const movie = location.state;
 	const dispatch = useDispatch();
-	const { movieReviews, relatedMovies } = useSelector(state => state.movie)
+	const { movieReviews, relatedMovies, movieGnere } = useSelector(state => state.movie)
 	const [activeTab, setActiveTab] = useState(0);
 
 	useEffect(() => {
@@ -26,8 +27,14 @@ const MovieDetail = () => {
 					<img className="poster" src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`} alt={movie.original_title} />
 				</div>
 				<div className="right">
-					<div className="gerne-wrap"></div>
 					<h1 className="tit">{movie.title}</h1>
+					<div className="gerne-wrap">
+						{
+							movie.genre_ids.map(genreId => (
+								<Badge bg="danger" key={genreId}>{movieGnere.find(ele => ele.id === genreId).name}</Badge>
+							))
+						}
+					</div>
 					<p className="desc">{movie.overview}</p>
 					<div className="info-wrap">
 						<span>👍 {movie.vote_average}</span>

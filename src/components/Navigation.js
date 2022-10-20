@@ -24,7 +24,7 @@ const Navigation = () => {
 	}
 
 	return (
-		<Navbar bg="dark" variant="dark" expand="lg">
+		<Navbar expand="lg">
 			<Container fluid>
 				<Navbar.Brand href="#"><img width={100} src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png" /></Navbar.Brand>
 				<Navbar.Toggle aria-controls="navbarScroll" />
